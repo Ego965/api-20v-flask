@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Create{% endblock %}
+{% block title %}Crear Post{% endblock %}
 
 {% block content %}
-<h1>Crear un post</h1>
-<form action="{{ url_for('posts_create') }}" method="POST">
-    <div>
-        <label for="title">titulo</label>
-        <input type="text" id="title" name="title">
-    </div>
-    <div>
-        <label for="content">contenido</label>
-        <input type="text" id="content" name="content">
-    </div>
-    <button type="submit">Crear</button>
-</form>
+<div class="card shadow-sm p-4">
+    <h1 class="card-title mb-4">Crear un Nuevo Post</h1>
+    <form action="{{ url_for('posts_create') }}" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ request.form['title'] or '' }}" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="content" class="form-label">Contenido</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required>{{ request.form['content'] or '' }}</textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Crear Post</button>
+        <a href="{{ url_for('posts_list') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
 {% endblock %}

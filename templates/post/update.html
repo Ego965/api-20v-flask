@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Update{% endblock %}
+{% block title %}Editar Post{% endblock %}
 
 {% block content %}
-<h1>Editar un post</h1>
-<form action="{{ url_for('posts_edit', post_id=post['id']) }}" method="POST">
-    <div>
-        <label for="title">titulo</label>
-        <input type="text" id="title" name="title" value="{{ post['title'] }}">
-    </div>
-    <div>
-        <label for="content">contenido</label>
-        <input type="text" id="content" name="content" value="{{ post['content'] }}">
-    </div>
-    <button type="submit">Editar</button>
-</form>
+<div class="card shadow-sm p-4">
+    <h1 class="card-title mb-4">Editar Post: {{ post['title'] }}</h1>
+    <form action="{{ url_for('posts_edit', post_id=post['id']) }}" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ request.form['title'] if request.form else post['title'] }}" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="content" class="form-label">Contenido</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required>{{ request.form['content'] if request.form else post['content'] }}</textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="{{ url_for('posts_list') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
 {% endblock %}

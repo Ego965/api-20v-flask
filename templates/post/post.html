@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}home{% endblock %}
+{% block title %}{{ post["title"] }}{% endblock %}
 
 
 {% block content %}
-<h1>{{ post["title"] }}</h1>
-<p>{{ post["content"] }}</p>
+<div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+        <h1 class="card-title mb-0">{{ post["title"] }}</h1>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ post["content"] }}</p>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-between">
+        <span>Creado el: {{ post["created"] }}</span>
+        <a href="{{ url_for('posts_list') }}" class="btn btn-sm btn-outline-secondary">Volver a la Lista</a>
+    </div>
+</div>
 {% endblock %}

@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}about{% endblock %}
+{% block title %}Acerca de{% endblock %}
 
 
 {% block content %}
-<h1>{{ name_page }}</h1>
+<div class="card shadow-sm p-4">
+    <h1 class="card-title">{{ name_page }}</h1>
+    <p class="card-text">
+        Esta aplicación es un proyecto de demostración que utiliza Python con el microframework Flask, 
+        SQLite para la base de datos y Bootstrap para una interfaz de usuario moderna. 
+    </p>
+    <p class="card-text">
+        Demuestra la implementación de rutas REST-ful, validación de formularios y uso de plantillas Jinja2.
+    </p>
+</div>
 {% endblock %}

@@ -117,4 +117,12 @@ def posts_delete(post_id):
     # Nota: Si el entorno virtual está configurado como paquete,
     # es posible que debas cambiar el inicio o usar 'flask run'.
 #   app.run(debug=True)
-# Usar 'flask run' en la terminal para correr la app
+# Usar en la terminal para correr la app
+# 1. Indica a Flask que tu aplicación está en main.py
+#export FLASK_APP=main.py
+
+# 2. (Opcional) Activa el modo desarrollo/debug
+#export FLASK_ENV=development 
+
+# 3. Ejecuta la aplicación
+#flask run
