@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Crear un post</h1>
-<form action="/posts/create" method="POST">
+<form action="{{ url_for('posts_create') }}" method="POST">
     <div>
         <label for="title">titulo</label>
         <input type="text" id="title" name="title">
