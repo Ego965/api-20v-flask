@@ -25,11 +25,13 @@ pip install -r requirements.txt
 
 # Realizar los ajustes requeridos para trabajar con SQLite u otra base de datos.
 
-# Asegúrate de que FLASK_APP apunte a tu archivo de inicio # 1. Indica a Flask que tu aplicación está en main.py
-#export FLASK_APP=main.py
+## IMPORTANTE PARA LA EJECUCION DEL APLICATIVO:
+# Asegúrate de que FLASK_APP apunte a tu archivo de inicio en la terminal
+# 1. Indica a Flask que tu aplicación está en main.py
+export FLASK_APP=main.py
 
 # 2. (Opcional) Activa el modo desarrollo/debug
-#export FLASK_ENV=development 
+export FLASK_ENV=development 
 
 # 3. Ejecuta la aplicación
-#flask run
+flask run
